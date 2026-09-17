@@ -1,79 +1,25 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Afghan Game Developer is an independent solo developer creating fun Afghan games for Android and PC." />
-  <title>Afghan Game Developer | Android & PC Games</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <style>
-    :root{--red:#c9252c;--green:#17ad52;--black:#090909;--muted:#646464;--line:#e8e8e8;--bg:#fff;}
-    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--black)}
-    a{text-decoration:none;color:inherit}.wrap{width:min(1160px,calc(100% - 40px));margin:auto}
-    nav{height:82px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
-    .brand{font-weight:900;letter-spacing:-1px;font-size:20px}.brand span:first-child{color:var(--red)}.brand span:last-child{color:var(--green)}
-    .navlinks{display:flex;align-items:center;gap:28px;font-size:14px;font-weight:700}.navlinks a:hover{color:var(--red)}
-    .play-btn,.primary{background:var(--black);color:#fff;padding:13px 19px;border-radius:10px;transition:.2s}.play-btn:hover,.primary:hover{transform:translateY(-2px);background:var(--red)}
-    .hero{min-height:650px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:60px;padding:72px 0 84px}
-    .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:1.8px;color:var(--red)}
-    .eyebrow:before{content:"";width:28px;height:3px;background:var(--green);border-radius:10px}
-    h1{font-size:clamp(54px,7vw,94px);line-height:.94;letter-spacing:-5px;margin:20px 0 25px;max-width:760px} h1 .red{color:var(--red)} h1 .green{color:var(--green)}
-    .lead{font-size:18px;line-height:1.75;color:var(--muted);max-width:620px;margin:0 0 34px}
-    .actions{display:flex;gap:12px;flex-wrap:wrap}.primary,.secondary{display:inline-flex;align-items:center;justify-content:center;font-weight:800;padding:16px 22px;border-radius:11px}.secondary{border:1px solid #d9d9d9;background:#fff}.secondary:hover{border-color:var(--green);color:var(--green)}
-    .logo-card{position:relative;display:flex;justify-content:center;align-items:center;min-height:500px}.logo-card:before{content:"";position:absolute;width:390px;height:390px;border-radius:50%;background:linear-gradient(135deg,#fff0f0,#f2fff6);filter:blur(0);z-index:0}.logo-card:after{content:"";position:absolute;width:310px;height:310px;border:1px solid #e5e5e5;border-radius:50%;z-index:0}.logo-card img{position:relative;z-index:1;width:min(100%,430px);filter:drop-shadow(0 24px 25px rgba(0,0,0,.08))}
-    .about{background:#0a0a0a;color:#fff;padding:90px 0}.about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px;align-items:start}.kicker{color:#5ddd8c;text-transform:uppercase;font-size:12px;font-weight:800;letter-spacing:2px}.about h2{font-size:48px;line-height:1.05;letter-spacing:-2.5px;margin:15px 0}.about p{color:#bcbcbc;font-size:17px;line-height:1.8;margin:0}.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:30px}.stat{border:1px solid #262626;border-radius:14px;padding:22px}.stat strong{display:block;font-size:25px;margin-bottom:5px}.stat span{font-size:13px;color:#999}
-    .connect{padding:95px 0}.connect-head{text-align:center;max-width:700px;margin:0 auto 42px}.connect h2{font-size:48px;letter-spacing:-2.5px;margin:0 0 14px}.connect-head p{color:var(--muted);line-height:1.7}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.card{border:1px solid var(--line);border-radius:16px;padding:25px;min-height:175px;display:flex;flex-direction:column;justify-content:space-between;transition:.2s}.card:hover{transform:translateY(-5px);border-color:#cfcfcf;box-shadow:0 14px 40px rgba(0,0,0,.06)}.icon{font-size:25px;font-weight:900}.card h3{margin:25px 0 5px;font-size:17px}.card p{margin:0;color:#888;font-size:13px}.arrow{font-size:22px;align-self:flex-end}.redline{border-top:4px solid var(--red)}.greenline{border-top:4px solid var(--green)}
-    footer{border-top:1px solid var(--line);padding:30px 0;color:#777;font-size:13px}.footer{display:flex;justify-content:space-between;gap:20px;align-items:center}.flag{font-weight:800}.flag .r{color:var(--red)}.flag .g{color:var(--green)}
-    @media(max-width:900px){.navlinks a:not(.play-btn){display:none}.hero{grid-template-columns:1fr;text-align:center;padding-top:55px}.hero .lead{margin-left:auto;margin-right:auto}.eyebrow{justify-content:center}.actions{justify-content:center}.logo-card{min-height:390px;order:-1}.logo-card img{width:330px}.about-grid{grid-template-columns:1fr;gap:35px}.cards{grid-template-columns:repeat(2,1fr)}h1{letter-spacing:-3px}}
-    @media(max-width:560px){.wrap{width:min(100% - 28px,1160px)}nav{height:72px}.brand{font-size:16px}.play-btn{padding:11px 13px}.hero{gap:10px;padding:40px 0 65px}.logo-card{min-height:310px}.logo-card:before{width:270px;height:270px}.logo-card:after{width:220px;height:220px}.logo-card img{width:270px}h1{font-size:52px;letter-spacing:-2.5px}.lead{font-size:16px}.about,.connect{padding:70px 0}.about h2,.connect h2{font-size:38px}.cards{grid-template-columns:1fr}.footer{flex-direction:column;text-align:center}}
-  </style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Afghan Game Developer</title>
+<meta name="description" content="Independent solo developer creating fun Afghan games for Android and PC.">
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#061015;color:#fff;font-family:Arial,Helvetica,sans-serif}a{color:inherit;text-decoration:none}.wrap{width:min(1180px,90%);margin:auto}
+nav{height:82px;display:flex;align-items:center;justify-content:space-between;background:#061015}.brand img{width:58px;height:58px;object-fit:cover;border-radius:16px}.links{display:flex;gap:48px;font-weight:700}.links a:hover,.green{color:#13c65a}.support,.primary{background:#08a84c;border-radius:28px;padding:14px 25px;font-weight:800}
+.hero{min-height:570px;position:relative;display:flex;align-items:center;overflow:hidden;background:linear-gradient(90deg,#061015 0%,rgba(6,16,21,.94) 30%,rgba(6,16,21,.35) 67%,rgba(6,16,21,.12)),linear-gradient(145deg,#263846,#14232d 50%,#09151c)}.hero:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 76% 42%,rgba(255,255,255,.12),transparent 25%),linear-gradient(0deg,rgba(0,0,0,.38),transparent 60%);pointer-events:none}.hero-inner{position:relative;z-index:2;width:min(1180px,90%);margin:auto}.hero-copy{max-width:550px}.hero h1{font-size:64px;line-height:.95;margin:0 0 24px;font-weight:900;letter-spacing:-2px}.red{color:#ef2028}.hero p{font-size:20px;line-height:1.55;color:#e4eaed;margin-bottom:28px}.actions{display:flex;gap:20px;flex-wrap:wrap}.primary{border-radius:9px;padding:18px 25px;background:#0bc95b}.secondary{border:1px solid #dce5e8;border-radius:9px;padding:18px 25px;font-weight:800}.socials{display:flex;gap:35px;margin-top:32px}.social{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:#111e24;font-weight:900;font-size:18px}.social.y{background:#f21f2b}.social.f{background:#2374e1}.social.t{background:#000}.mountains{position:absolute;right:4%;bottom:25px;font-size:155px;opacity:.13;z-index:1;letter-spacing:-25px}
+section{padding:72px 0;border-top:1px solid #17262d}.eyebrow{text-align:center;color:#aab7bc;letter-spacing:6px;font-size:12px}.title{text-align:center;font-size:40px;margin:14px 0 8px}.sub{text-align:center;color:#aab7bc}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:35px}.card{border:1px solid #34444b;padding:24px;border-radius:8px;background:#09151b;display:flex;justify-content:space-between;align-items:center}.card b{display:block;margin-bottom:5px}.card span{color:#aab7bc;font-size:13px}.ico{font-size:30px;margin-right:15px}.card-left{display:flex;align-items:center}
+.about{display:grid;grid-template-columns:1fr 1.18fr;gap:55px;align-items:center}.visual{height:430px;border-radius:18px;background:linear-gradient(145deg,#e6bd86,#6c7775 48%,#263a3b);position:relative;overflow:hidden}.visual:after{content:"AFGHAN\A STORIES";white-space:pre;position:absolute;right:24px;bottom:24px;font-size:48px;font-weight:900;line-height:.9;opacity:.18}.about-label{color:#10cf5d;letter-spacing:4px;font-weight:800}.about h2{font-size:38px;line-height:1.05;margin:16px 0}.about p{color:#d2dadd;font-size:18px;line-height:1.55}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}.feature{border-right:1px solid #24333a}.feature:last-child{border:0}.feature strong{display:block;margin:9px 0}.feature small{color:#aab7bc}
+.quote{padding:65px 0;text-align:center;background:linear-gradient(#10232e,#061015);font-size:24px;font-style:italic;color:#c7d0d4}.quote small{display:block;margin-top:12px;font-style:normal;font-size:15px}footer{padding:30px 0;color:#9eabb0}.foot{display:flex;justify-content:space-between;gap:20px}.footlinks{display:flex;gap:25px}
+@media(max-width:800px){.links{display:none}.hero h1{font-size:48px}.hero{min-height:600px}.cards{grid-template-columns:1fr 1fr}.about{grid-template-columns:1fr}.visual{height:330px}.features{grid-template-columns:1fr}.feature{border-right:0;border-bottom:1px solid #24333a;padding-bottom:15px}.foot{flex-direction:column}.mountains{font-size:90px}}
+@media(max-width:520px){.cards{grid-template-columns:1fr}.hero h1{font-size:43px}.hero p{font-size:17px}.support{padding:11px 16px}.title{font-size:34px}}
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <nav>
-      <a class="brand" href="#home"><span>AFGHAN</span> GAME <span>DEVELOPER</span></a>
-      <div class="navlinks"><a href="#about">About</a><a href="#connect">Connect</a><a class="play-btn" href="https://play.google.com/store/apps/dev?id=7636151872118751700" target="_blank" rel="noopener">View Games ↗</a></div>
-    </nav>
-  </div>
-
-  <main id="home">
-    <section class="wrap hero">
-      <div>
-        <div class="eyebrow">Independent Solo Developer</div>
-        <h1>Afghan stories.<br><span class="red">Made to</span> <span class="green">play.</span></h1>
-        <p class="lead">Afghan Game Developer is an independent solo developer creating fun Afghan games for Android and PC — bringing familiar culture, humor and ideas into games made for everyone to enjoy.</p>
-        <div class="actions">
-          <a class="primary" href="https://play.google.com/store/apps/dev?id=7636151872118751700" target="_blank" rel="noopener">Explore Android Games ↗</a>
-          <a class="secondary" href="https://www.youtube.com/@AfghanGameDeveloper" target="_blank" rel="noopener">Watch on YouTube</a>
-        </div>
-      </div>
-      <div class="logo-card"><img src="logo.png" alt="Afghan Game Developer logo"></div>
-    </section>
-
-    <section class="about" id="about">
-      <div class="wrap about-grid">
-        <div><div class="kicker">About the developer</div><h2>One developer.<br>Many ideas.</h2></div>
-        <div>
-          <p>Built independently from concept to release, Afghan Game Developer focuses on simple, entertaining experiences with an Afghan identity. The goal is straightforward: create games that are fun to pick up, memorable to play, and representative of a community that deserves to see more of itself in games.</p>
-          <div class="stats"><div class="stat"><strong>Solo</strong><span>Independent development</span></div><div class="stat"><strong>Android + PC</strong><span>Games across platforms</span></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="wrap connect" id="connect">
-      <div class="connect-head"><div class="kicker" style="color:var(--red)">Find Afghan Game Developer</div><h2>Play. Watch. Follow.</h2><p>Discover the games and follow development, updates, videos and new releases across the official channels.</p></div>
-      <div class="cards">
-        <a class="card greenline" href="https://play.google.com/store/apps/dev?id=7636151872118751700" target="_blank" rel="noopener"><div><div class="icon">▶</div><h3>Google Play</h3><p>Download and play Android games.</p></div><div class="arrow">↗</div></a>
-        <a class="card redline" href="https://www.youtube.com/@AfghanGameDeveloper" target="_blank" rel="noopener"><div><div class="icon">YouTube</div><h3>YouTube</h3><p>Gameplay, trailers and development videos.</p></div><div class="arrow">↗</div></a>
-        <a class="card greenline" href="https://www.facebook.com/profile.php?id=100076070940523" target="_blank" rel="noopener"><div><div class="icon">f</div><h3>Facebook</h3><p>News, posts and community updates.</p></div><div class="arrow">↗</div></a>
-        <a class="card redline" href="https://www.tiktok.com/@afghangamedev?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener"><div><div class="icon">♪</div><h3>TikTok</h3><p>Short clips and game moments.</p></div><div class="arrow">↗</div></a>
-      </div>
-    </section>
-  </main>
-
-  <footer><div class="wrap footer"><div class="flag"><span class="r">AFGHAN</span> GAME <span class="g">DEVELOPER</span></div><div>© <span id="year"></span> Afghan Game Developer. All rights reserved.</div></div></footer>
-  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
-</body>
-</html>
+<nav><div class="wrap" style="display:flex;align-items:center;justify-content:space-between"><a class="brand" href="#home"><img src="512%20x%20512%20Wh%C4%B1te%20Background%20Afghan%20Game%20Developer%20Logo.jpg" alt="Afghan Game Developer logo"></a><div class="links"><a class="green" href="#home">Home</a><a href="#games">Games</a><a href="#about">About</a><a href="#contact">Contact</a></div><a class="support" href="https://www.youtube.com/@AfghanGameDeveloper" target="_blank">Follow &amp; Support</a></div></nav>
+<header class="hero" id="home"><div class="hero-inner"><div class="hero-copy"><h1>Games with<br><span class="red">Afghan</span> <span class="green">Spirit</span></h1><p>I'm an independent solo developer creating fun Afghan games for Android and PC. My goal is to bring our culture, stories and entertainment to players around the world.</p><div class="actions"><a class="primary" href="https://play.google.com/store/apps/dev?id=7636151872118751700" target="_blank">▶ &nbsp; View My Games on Google Play →</a><a class="secondary" href="https://www.youtube.com/@AfghanGameDeveloper" target="_blank">▶ &nbsp; Watch on YouTube</a></div><div class="socials"><a class="social y" href="https://www.youtube.com/@AfghanGameDeveloper" target="_blank">▶</a><a class="social f" href="https://www.facebook.com/profile.php?id=100076070940523" target="_blank">f</a><a class="social t" href="https://www.tiktok.com/@afghangamedev?is_from_webapp=1&sender_device=pc" target="_blank">♪</a></div></div><div class="mountains">▲▲▲</div></div></header>
+<section id="games"><div class="wrap"><div class="eyebrow">FEATURED ON</div><h2 class="title">Find My Games</h2><p class="sub">Play now on Android and follow for new updates!</p><div class="cards"><a class="card" target="_blank" href="https://play.google.com/store/apps/dev?id=7636151872118751700"><div class="card-left"><div class="ico">▶</div><div><b>Google Play</b><span>All My Games</span></div></div>→</a><a class="card" target="_blank" href="https://www.youtube.com/@AfghanGameDeveloper"><div class="card-left"><div class="ico">▣</div><div><b>YouTube</b><span>Game Videos</span></div></div>→</a><a class="card" target="_blank" href="https://www.facebook.com/profile.php?id=100076070940523"><div class="card-left"><div class="ico">f</div><div><b>Facebook</b><span>Follow Updates</span></div></div>→</a><a class="card" target="_blank" href="https://www.tiktok.com/@afghangamedev?is_from_webapp=1&sender_device=pc"><div class="card-left"><div class="ico">♪</div><div><b>TikTok</b><span>Short Videos</span></div></div>→</a></div></div></section>
+<section id="about"><div class="wrap about"><div class="visual"></div><div><div class="about-label">ABOUT ME</div><h2>Independent. Passionate.<br>Always Creating.</h2><p>I'm Afrasiab, an independent solo game developer. I create games inspired by Afghan culture, stories and everyday life — for Android and PC. My goal is to make fun, high-quality games that entertain, represent our region, and reach players all over the world.</p><div class="features"><div class="feature"><div style="font-size:30px">🎮</div><strong>Fun Gameplay</strong><small>Games for everyone</small></div><div class="feature"><div style="font-size:30px">♟</div><strong>Afghan Culture</strong><small>Stories that matter</small></div><div class="feature"><div style="font-size:30px">♡</div><strong>Solo Developer</strong><small>Made with passion</small></div></div></div></div></section>
+<div class="quote">“Small games can make a big impact.”<small>— Afrasiab</small></div>
+<footer id="contact"><div class="wrap foot"><span>© 2026 Afrasiab Mahdi. All rights reserved.</span><div class="footlinks"><a target="_blank" href="https://www.youtube.com/@AfghanGameDeveloper">YouTube</a><a target="_blank" href="https://www.facebook.com/profile.php?id=100076070940523">Facebook</a><a target="_blank" href="https://www.tiktok.com/@afghangamedev?is_from_webapp=1&sender_device=pc">TikTok</a></div></div></footer>
+</body></html>
