@@ -13,6 +13,22 @@ section{padding:72px 0;border-top:1px solid #17262d}.eyebrow{text-align:center;c
 .quote{padding:65px 0;text-align:center;background:linear-gradient(#10232e,#061015);font-size:24px;font-style:italic;color:#c7d0d4}.quote small{display:block;margin-top:12px;font-style:normal;font-size:15px}footer{padding:30px 0;color:#9eabb0}.foot{display:flex;justify-content:space-between;gap:20px}.footlinks{display:flex;gap:25px}
 @media(max-width:800px){.links{display:none}.hero h1{font-size:48px}.hero{min-height:600px}.cards{grid-template-columns:1fr 1fr}.about{grid-template-columns:1fr}.visual{height:330px}.features{grid-template-columns:1fr}.feature{border-right:0;border-bottom:1px solid #24333a;padding-bottom:15px}.foot{flex-direction:column}.mountains{font-size:90px}}
 @media(max-width:520px){.cards{grid-template-columns:1fr}.hero h1{font-size:43px}.hero p{font-size:17px}.support{padding:11px 16px}.title{font-size:34px}}
+
+/* Motion & interaction */
+.brand img,.support,.primary,.secondary,.social,.card,.links a,.footlinks a{transition:transform .25s ease,box-shadow .25s ease,background .25s ease,border-color .25s ease,color .25s ease,filter .25s ease}
+.brand img:hover{transform:scale(1.07) rotate(-2deg);box-shadow:0 8px 25px rgba(11,201,91,.22)}
+.links a{position:relative}.links a:after{content:"";position:absolute;left:0;bottom:-8px;width:100%;height:2px;background:#13c65a;transform:scaleX(0);transform-origin:left;transition:transform .25s ease}.links a:hover:after{transform:scaleX(1)}
+.support:hover,.primary:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 10px 28px rgba(11,201,91,.32);filter:brightness(1.08)}
+.secondary:hover{transform:translateY(-3px);background:rgba(255,255,255,.08);border-color:#13c65a;box-shadow:0 10px 28px rgba(0,0,0,.28)}
+.social:hover{transform:translateY(-6px) scale(1.1);box-shadow:0 10px 25px rgba(0,0,0,.35)}
+.card{position:relative;overflow:hidden}.card:before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 20%,rgba(255,255,255,.08),transparent 80%);transform:translateX(-120%);transition:transform .55s ease}.card:hover{transform:translateY(-7px);border-color:#13c65a;box-shadow:0 14px 35px rgba(0,0,0,.28)}.card:hover:before{transform:translateX(120%)}.card:hover>.card-left .ico{transform:scale(1.12)}.ico{transition:transform .25s ease}
+.hero-copy>*{opacity:0;transform:translateY(24px);animation:heroIn .7s ease forwards}.hero-copy h1{animation-delay:.08s}.hero-copy p{animation-delay:.2s}.hero-copy .actions{animation-delay:.32s}.hero-copy .socials{animation-delay:.44s}.mountains{animation:mountainFloat 5s ease-in-out infinite}
+@keyframes heroIn{to{opacity:1;transform:translateY(0)}}@keyframes mountainFloat{50%{transform:translateY(-10px)}}
+.about .visual{transition:transform .45s ease,box-shadow .45s ease}.about .visual:hover{transform:scale(1.02);box-shadow:0 20px 45px rgba(0,0,0,.35)}
+.feature{transition:transform .25s ease}.feature:hover{transform:translateY(-5px)}
+.footlinks a:hover{color:#13c65a;transform:translateY(-2px)}
+a:active{transform:scale(.97)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
